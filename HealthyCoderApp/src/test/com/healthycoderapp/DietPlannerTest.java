@@ -1,5 +1,6 @@
 package com.healthycoderapp;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,11 @@ class DietPlannerTest {
     @BeforeEach
     void setup() {
         this.dietPlanner = new DietPlanner(20, 30, 50);
+    }
+
+    @AfterEach
+    void afterEachUnitTest() {
+        System.out.println("A unit test was finished.");
     }
 
     @Test
