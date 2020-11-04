@@ -89,6 +89,7 @@ class BMICalculatorTest {
         assertTrue(recommended);
     }
 
+    // every time it repeats it is treated as a sperate unit test
     @RepeatedTest(10)
     void should_ReturnTrue_When_DietRecommended_RepeatedTest() {
 
