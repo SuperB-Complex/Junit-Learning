@@ -2,6 +2,7 @@ package com.healthycoderapp;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -80,6 +81,20 @@ class BMICalculatorTest {
         // given
         double weight = coderWeight;
         double height = coderHeight;
+
+        // when
+        boolean recommended = BMICalculator.isDietRecommended(weight, height);
+
+        // then
+        assertTrue(recommended);
+    }
+
+    @RepeatedTest(10)
+    void should_ReturnTrue_When_DietRecommended_RepeatedTest() {
+
+        // given
+        double weight = 77.0;
+        double height = 1.72;
 
         // when
         boolean recommended = BMICalculator.isDietRecommended(weight, height);
