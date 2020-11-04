@@ -14,8 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class BMICalculatorTest {
+
+    private String environment = "dev";
 
     // must be static and will be executed before all unit tests
     // usually it is used for expensive setting ups
@@ -153,6 +156,7 @@ class BMICalculatorTest {
     @Test
     void should_returnCoderWithWorstBMIIn1Ms_When_CoderListHas333333Element() {
 
+        assumeTrue(this.environment.equals("prod"));
         // given
         List<Coder> coders = new ArrayList<>();
         for (int i = 1; i <= 111111; i++) {
