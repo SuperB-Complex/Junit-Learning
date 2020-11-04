@@ -59,7 +59,7 @@ class BMICalculatorTest {
         List<Coder> coders = new ArrayList<>();
         coders.add(new Coder(1.80, 60.0));
         coders.add(new Coder(1.82, 98.0));
-        coders.add(new Coder(1.82, 64.7));
+        coders.add(new Coder(1.85, 64.7));
 
         // when
         Coder coderWorstBMI = BMICalculator.findCoderWithWorstBMI(coders);
@@ -67,5 +67,28 @@ class BMICalculatorTest {
         // then
         assertEquals(1.82, coderWorstBMI.getHeight());
         assertEquals(98.0, coderWorstBMI.getWeight());
+    }
+
+    @Test
+    void should_returnCoderWithWorstBMI_When_CoderListNotEmpty_AssertAll() {
+
+        // given
+        List<Coder> coders = new ArrayList<>();
+        coders.add(new Coder(1.80, 60.0));
+        coders.add(new Coder(1.82, 98.0));
+        coders.add(new Coder(1.85, 64.7));
+
+        // when
+        Coder coderWorstBMI = BMICalculator.findCoderWithWorstBMI(coders);
+
+        // then
+        // the reason of using assertAll is that it can force executing all assertions
+        // originally you can see where the first assertions failed
+        // but sometimes you need to see results of all assertions
+        // To sum up, assertAll should be used for assertions that makes sense as a whole
+        assertAll(
+                () -> assertEquals(1.82, coderWorstBMI.getHeight()),
+                () -> assertEquals(98.0, coderWorstBMI.getWeight())
+        );
     }
 }
